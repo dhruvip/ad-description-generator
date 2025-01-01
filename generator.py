@@ -1,6 +1,7 @@
-
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
+from langchain_huggingface import HuggingFaceEndpoint
+from langchain.chains import LLMChain
 
 def copy_and_clean_session_obj(session_obj, nonspecifics):
     temp = dict()
@@ -42,7 +43,7 @@ def generator(session_obj):
     '''
     session_obj, ad_specifics = copy_and_clean_session_obj(session_obj, ["ad_type","category","brand-model","language"])
 
-    chat = ChatOpenAI(temperature=0.0, model='gpt-4o')
+    
     # chat = ChatOpenAI(temperature=0.0, model='gpt-3.5-turbo')
     prompt_template = ChatPromptTemplate.from_template(template_string)
     print(prompt_template.messages[0].prompt.input_variables)
@@ -53,5 +54,24 @@ def generator(session_obj):
                     ad_specifics=ad_specifics,
                     language=session_obj["language"]
                     )
+    
+    chatGpt(final_prompt)
+    huggingFace(final_prompt)
+
+def chatGpt(final_prompt):
+    chat = ChatOpenAI(temperature=0.0, model='gpt-4o')
     description = chat.invoke(final_prompt)
     return description.content, final_prompt
+
+def huggingFace(final_prompt):
+    repo_id = "mistralai/Mistral-7B-Instruct-v0.2"
+
+    llm = HuggingFaceEndpoint(
+        repo_id=repo_id,
+        max_length=128,
+        temperature=0.5,
+        huggingfacehub_api_token=HUGGINGFACEHUB_API_TOKEN,
+    )
+
+    response = llm.invoke(final_prompt[0].content)
+    return response, final_prompt
