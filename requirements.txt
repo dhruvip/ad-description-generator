@@ -1,6 +1,6 @@
-openai
 python-dotenv
 langchain
 langchain-community
 langchain-openai
 streamlit
+langchain_huggingface
