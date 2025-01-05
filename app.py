@@ -57,7 +57,7 @@ with tab3 :
         st.write("Select Ad attributes and click on generate")
     else:
         st.write(description_gpt4omini)
-with tab3 :
+with tab4 :
     if 'generate' not in st.session_state:
         st.write("Select Ad attributes and click on generate")
     else:
