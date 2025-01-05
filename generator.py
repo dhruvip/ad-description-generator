@@ -2,6 +2,7 @@ from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain_huggingface import HuggingFaceEndpoint
 from langchain.chains import LLMChain
+import os
 
 def copy_and_clean_session_obj(session_obj, nonspecifics):
     temp = dict()
@@ -16,7 +17,7 @@ def copy_and_clean_session_obj(session_obj, nonspecifics):
             specifics_str = specifics_str + f'- {_e}: {temp[_e]}\n'
     return temp, specifics_str
 
-def generator(session_obj):
+def generator(session_obj, model):
     template_string = '''
     Imagine you are support team member for a classifieds platform where sellers can post ads for different products they 
     want to sell or rent out.
@@ -54,24 +55,39 @@ def generator(session_obj):
                     ad_specifics=ad_specifics,
                     language=session_obj["language"]
                     )
-    
-    chatGpt(final_prompt)
-    huggingFace(final_prompt)
+    match model:
+        case 'gpt-4o':
+            return chatGpt(final_prompt, model='gpt-4o')
+        case 'gpt-4o-mini':
+            return chatGpt(final_prompt, model='gpt-4o')
+        case 'gpt-3.5-turbo':
+            return chatGpt(final_prompt, model='gpt-3.5-turbo')
+        case 'mistralai':
+            return huggingFace(final_prompt, model='mistralai/Mistral-7B-Instruct-v0.2')
+        case _:
+            print('default case')
 
-def chatGpt(final_prompt):
-    chat = ChatOpenAI(temperature=0.0, model='gpt-4o')
-    description = chat.invoke(final_prompt)
+def chatGpt(final_prompt,model):
+    try:
+        chat = ChatOpenAI(temperature=0.0, model=model)
+        description = chat.invoke(final_prompt)
+    except:
+        description={}
+        description['content'] = 'Some Error occured while calling Chat gpt'
     return description.content, final_prompt
 
-def huggingFace(final_prompt):
-    repo_id = "mistralai/Mistral-7B-Instruct-v0.2"
+def huggingFace(final_prompt, model):
+    repo_id = model
+    hf_token = os.getenv('HF_TOKEN')
+    try:
+        llm = HuggingFaceEndpoint(
+            repo_id=repo_id,
+            max_new_tokens=128, 
+            temperature=0.5,
+            huggingfacehub_api_token=hf_token,
+        )
 
-    llm = HuggingFaceEndpoint(
-        repo_id=repo_id,
-        max_length=128,
-        temperature=0.5,
-        huggingfacehub_api_token=HUGGINGFACEHUB_API_TOKEN,
-    )
-
-    response = llm.invoke(final_prompt[0].content)
+        response = llm.invoke(final_prompt[0].content)
+    except:
+        response = 'Some Error occured while calling Hugging face'
     return response, final_prompt
