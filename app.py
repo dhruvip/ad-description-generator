@@ -11,7 +11,7 @@ st.title("Ad Description Generator")
 
 # Sidebar
 st.sidebar.title("Ad Properties")
-category = st.sidebar.selectbox("Select Category",options=["Cars", "Mobiles"],key="category")
+category = st.sidebar.selectbox("Select Category",options=["Cars", "Mobiles", "Motorbikes"],key="category")
 st.sidebar.selectbox("Select Language", options=["English","Sinhala", "Bangla"],key="language")
 
 

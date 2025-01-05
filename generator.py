@@ -42,7 +42,7 @@ def generator(session_obj, model):
     AD SPECIFICS:
     {ad_specifics}
     '''
-    session_obj, ad_specifics = copy_and_clean_session_obj(session_obj, ["ad_type","category","brand-model","language"])
+    session_obj, ad_specifics = copy_and_clean_session_obj(session_obj, ["ad_type","category","brand-model","language","generate"])
 
     
     # chat = ChatOpenAI(temperature=0.0, model='gpt-3.5-turbo')

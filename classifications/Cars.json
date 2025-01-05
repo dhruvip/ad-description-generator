@@ -1,7 +1,7 @@
 [{
     "name": "Ad type",
     "type": "selectbox",
-    "options": ["For Sale", "For Rent"],
+    "options": ["For Sale"],
     "key": "ad_type"
 },{
     "name": "Condition",
@@ -47,8 +47,4 @@
     "type": "selectbox",
     "options": ["saloon","hatchback","estate","convertible","coupe-sports","suv-4x4","mpv"],
     "key": "body"
-},{
-    "name": "Price",
-    "type": "text_input",
-    "key": "price"
 }]
