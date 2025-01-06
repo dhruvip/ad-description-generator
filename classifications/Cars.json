@@ -35,16 +35,16 @@
 },{
     "name": "Fuel Type",
     "type": "selectbox",
-    "options": ["diesel","petrol","cng","hybrid","electric","other"],
+    "options": ["","diesel","petrol","cng","hybrid","electric","other"],
     "key": "fuel_type"
 },{
     "name": "Transmission",
     "type": "selectbox",
-    "options": ["manual","automatic","tiptronic","other"],
+    "options": ["","manual","automatic","tiptronic","other"],
     "key": "transmission"
 },{
     "name": "Body",
     "type": "selectbox",
-    "options": ["saloon","hatchback","estate","convertible","coupe-sports","suv-4x4","mpv"],
+    "options": ["","saloon","hatchback","estate","convertible","coupe-sports","suv-4x4","mpv"],
     "key": "body"
 }]
