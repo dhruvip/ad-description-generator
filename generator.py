@@ -3,6 +3,7 @@ from langchain.prompts import ChatPromptTemplate
 from langchain_huggingface import HuggingFaceEndpoint
 from langchain.chains import LLMChain
 import os
+from langchain_community.callbacks import get_openai_callback
 
 def copy_and_clean_session_obj(session_obj, nonspecifics):
     temp = dict()
@@ -41,6 +42,7 @@ def generator(session_obj, model):
     Can you help me write product description for {ad_type} {category} with brand and model {brand_model} in language {language} with ad specifics in the format key: value as below
     AD SPECIFICS:
     {ad_specifics}
+    If the values in ad specifics are not provided please use factual data 
     '''
     session_obj, ad_specifics = copy_and_clean_session_obj(session_obj, ["ad_type","category","brand-model","language","generate"])
 
@@ -70,24 +72,31 @@ def generator(session_obj, model):
 def chatGpt(final_prompt,model):
     try:
         chat = ChatOpenAI(temperature=0.0, model=model)
-        description = chat.invoke(final_prompt)
+        with get_openai_callback() as cb:
+            description = chat.invoke(final_prompt)
+            call_details = f"Total Tokens: {cb.total_tokens} Prompt Tokens: {cb.prompt_tokens} Completion Tokens: {cb.completion_tokens} Total Cost (USD): ${cb.total_cost}"
+
     except:
         description={}
         description['content'] = 'Some Error occured while calling Chat gpt'
-    return description.content, final_prompt
+        call_details = 'None'
+    return description.content, final_prompt,call_details
 
 def huggingFace(final_prompt, model):
     repo_id = model
     hf_token = os.getenv('HF_TOKEN')
     try:
-        llm = HuggingFaceEndpoint(
-            repo_id=repo_id,
-            max_new_tokens=128, 
-            temperature=0.5,
-            huggingfacehub_api_token=hf_token,
-        )
+        with get_openai_callback() as cb:
+            llm = HuggingFaceEndpoint(
+                repo_id=repo_id,
+                max_new_tokens=128, 
+                temperature=0.5,
+                huggingfacehub_api_token=hf_token,
+            )
 
-        response = llm.invoke(final_prompt[0].content)
+            response = llm.invoke(final_prompt[0].content)
+            call_details = f"Total Tokens: {cb.total_tokens} Prompt Tokens: {cb.prompt_tokens} Completion Tokens: {cb.completion_tokens} Total Cost (USD): ${cb.total_cost}"
     except:
         response = 'Some Error occured while calling Hugging face'
-    return response, final_prompt
+        call_details = 'None'
+    return response, final_prompt, call_details
