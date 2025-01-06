@@ -91,7 +91,7 @@ def huggingFace(final_prompt, model):
         with get_openai_callback() as cb:
             llm = HuggingFaceEndpoint(
                 repo_id=repo_id,
-                max_new_tokens=400, 
+                max_new_tokens=128, 
                 temperature=0.5,
                 huggingfacehub_api_token=hf_token,
             )
