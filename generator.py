@@ -43,6 +43,8 @@ def generator(session_obj, model):
     AD SPECIFICS:
     {ad_specifics}
     If the values in ad specifics are not provided please use factual data 
+
+    Also, give a comma separated list of search keywords for the generated ad description
     '''
     session_obj, ad_specifics = copy_and_clean_session_obj(session_obj, ["ad_type","category","brand-model","language","generate"])
 
@@ -89,7 +91,7 @@ def huggingFace(final_prompt, model):
         with get_openai_callback() as cb:
             llm = HuggingFaceEndpoint(
                 repo_id=repo_id,
-                max_new_tokens=128, 
+                max_new_tokens=400, 
                 temperature=0.5,
                 huggingfacehub_api_token=hf_token,
             )
