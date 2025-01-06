@@ -39,7 +39,7 @@ def generator(session_obj, model):
 
     Avoid making up answers. If factual data is not available, output "I dont know".
 
-    Can you help me write product description for {ad_type} {category} with brand and model {brand_model} in language {language} with ad specifics in the format key: value as below
+    Can you help me write 200 word product description for {ad_type} {category} with brand and model {brand_model} in language {language} with ad specifics in the format key: value as below
     AD SPECIFICS:
     {ad_specifics}
     If the values in ad specifics are not provided please use factual data 
