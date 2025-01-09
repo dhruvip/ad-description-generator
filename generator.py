@@ -26,12 +26,16 @@ def generator(session_obj, model):
     1. Start with Essential Product Details:
         * Include: Product name, brand/model, key features, and condition (if specified).
         * Keep language simple and natural with short, direct sentences.
+        * Use emojis while generating description.
+        * Mimic how a typical seller speaks, use phrases like: • "Up for sale..." • "Available for immediate sale..." • "For sale..." • "Urgent sale..." • "Quick sale..." • "Going for...". 
         * Ensure the description is factual, concise, and clear, avoiding assumptions.
     2. Content Structure:
         * Title: Product name, brand/model, and key selling points.
-        * Opening: Start with core details (product name, brand/model, key features, and condition).
+        * Description: Start with core details (product name, brand/model, key features, and condition).
         * Features: Use bullet points for specifications.
         * Additional Info: Provide brief, relevant context when needed.
+        * End the product description with a friendly, engaging call to action or reassurance. Encourage potential buyers to contact you for more details, schedule a viewing, or discuss pricing.
+        * Show the price if it is present in ad specifics. If no price is given don’t assume.
     3. Formatting:
         * Use short, simple sentences.
         * Use bullet points where applicable to list features and benefits.
@@ -41,9 +45,14 @@ def generator(session_obj, model):
         * Use general manufacturer-provided features when specifics are missing.
         * If critical details are missing (e.g., color, condition), output “I don’t know”.
     5. Variation Guidelines:
-        * Randomly vary the order of feature details and opening sentences.
-        * Use different synonyms and formatting styles (bullet points, short paragraphs).
-        * Rotate which features are emphasized.
+        * Randomize the order of features and technical details.
+        * Alternate opening sentences and mix specifications.
+        * Use synonyms for key terms and vary transitions (e.g., "Additionally," "What’s more").
+        * Switch between casual and formal tones.
+        * Highlight different features in detail and group related ones differently.
+        * Alternate between concise and expanded descriptions.
+        * Experiment with paragraph-first, bullet-point, or hybrid formats.
+        * Rotate title styles like “Quick Sale: {brand_model}” or “For Sale: {brand_model}.”
     6. Content Guidelines:
         * Use natural, conversational language, as a seller would speak to a buyer.
         * Avoid marketing jargon, poetic phrases, or overly elaborate sentences.
