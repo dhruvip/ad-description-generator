@@ -17,11 +17,13 @@ Guidelines:
 
 2. Content Structure:
     * Title: Brand + Part Name + Compatibility + Key selling points (e.g., "Genuine Toyota Brake Pads - Fits 2018-2022 Corolla")
+    * Location
     * Description: Start with core details (part type, brand, compatibility, condition)
     * Specifications: Use bullet points for technical details and measurements
     * Warranty/Guarantee: Mention warranty period, return policy if provided
+    * Don't explicitly talk about product condition.
     * End with a call to action encouraging purchase or inquiry
-    * Show the asking price if present in PRODUCT SPECIFICATIONS. If no price is given don't assume
+    * Show the asking price if present in PRODUCT SPECIFICATIONS. If no price is given don't assume and don't add it to the description.
 
 3. Formatting:
     * Use short, simple sentences
@@ -31,7 +33,7 @@ Guidelines:
 4. Handling Missing Data:
     * Only include information explicitly stated in the part specifications
     * Use standard manufacturer specifications when specific details are missing
-    * If critical details are missing (e.g., compatibility, condition), output "I don't know"
+    * If critical details are missing (e.g., compatibility, condition),don't assume and don't add it to the description.
 
 5. Variation Guidelines:
     * Randomize the order of technical specifications
@@ -49,7 +51,7 @@ Guidelines:
     * Be concise and factual, limiting descriptions to under 200 words
     * Focus on important part-specific details (authenticity, compatibility, specifications)
 
-Can you help me write a product description for {ad_type} {category} with brand/model {brand_model} in language {language} with specifications in the format key: value as below:
+Can you help me write a product description for {ad_type} {category} with brand/model {brand_model} in language {language} present in {location} with specifications in the format key: value as below:
 
 PRODUCT SPECIFICATIONS:
 {ad_specifics}'''

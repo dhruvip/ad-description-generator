@@ -32,4 +32,9 @@
     "type": "text_input",
     "default": 10000,
     "key": "engine_capacity"
+},{
+    "name": "Price",
+    "type": "text_input",
+    "default": 0,
+    "key": "price"
 }]

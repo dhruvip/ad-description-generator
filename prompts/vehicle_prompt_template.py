@@ -10,11 +10,13 @@ Guidelines:
 
 2. Content Structure:
     * Title: Year + Make + Model + Key selling points (e.g., "2019 Toyota Corolla - Low Mileage")
+    * Location
     * Description: Start with core details (year, make, model, mileage, transmission, fuel type)
     * Features: Use bullet points for specifications and modifications
-    * Service History: Mention maintenance records, recent repairs, or upgrades if provided
+    * Service History: Mention maintenance records, recent repairs, or upgrades if provided or don't add it to the description.
+    * Don't explicitly talk about product condition.
     * End with a call to action encouraging test drives, inspections, or viewing appointments
-    * Show the asking price if present in VEHICLE SPECIFICATIONS. If no price is given don't assume
+    * Show the asking price if present in VEHICLE SPECIFICATIONS. If no price is given don't assume and don't add it to the description.
 
 3. Formatting:
     * Use short, simple sentences
@@ -42,7 +44,7 @@ Guidelines:
     * Be concise and factual, limiting descriptions to under 200 words
     * Focus on important vehicle-specific details (condition, maintenance, modifications)
 
-Can you help me write a vehicle description for {ad_type} {category} with brand and model {brand_model} in language {language} with specifications in the format key: value as below:
+Can you help me write a vehicle description for {ad_type} {category} with brand and model {brand_model} in language {language} present in {location} with specifications in the format key: value as below:
 
 VEHICLE SPECIFICATIONS:
 {ad_specifics}'''

@@ -21,7 +21,10 @@ def copy_and_clean_session_obj(session_obj, nonspecifics):
     return temp, specifics_str
 
 def generator(session_obj, model):
-    session_obj, ad_specifics = copy_and_clean_session_obj(session_obj, ["ad_type","category","brand-model","language","generate"])
+    print("==============================")
+    print(session_obj)
+    print("==============================")
+    session_obj, ad_specifics = copy_and_clean_session_obj(session_obj, ["ad_type","category","brand-model","language","location","generate"])
     
     if(session_obj["category"] in ["Cars", "Motorbikes"]):
         template_string = vehicle_prompt_template.prompt
@@ -35,7 +38,8 @@ def generator(session_obj, model):
                     brand_model=session_obj["brand-model"],
                     category=session_obj["category"],
                     ad_specifics=ad_specifics,
-                    language=session_obj["language"]
+                    language=session_obj["language"],
+                    location=session_obj["location"]
                     )
     match model:
         case 'gpt-4o':

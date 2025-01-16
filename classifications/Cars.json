@@ -47,4 +47,9 @@
     "type": "selectbox",
     "options": ["","saloon","hatchback","estate","convertible","coupe-sports","suv-4x4","mpv"],
     "key": "body"
+},{
+    "name": "Price",
+    "type": "text_input",
+    "default": 0,
+    "key": "price"
 }]

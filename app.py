@@ -19,7 +19,7 @@ st.title("Ad Description Generator")
 st.sidebar.title("Ad Properties")
 category = st.sidebar.selectbox("Select Category",options=["Cars", "Mobiles", "Motorbikes"],key="category")
 st.sidebar.selectbox("Select Language", options=["English","Sinhala", "Bangla"],key="language")
-
+st.sidebar.selectbox("Select Location", options=["Ampara", "Anuradhapura", "Badulla", "Batticaloa", "Colombo", "Galle", "Gampaha", "Hambantota", "Jaffna", "Kalutara", "Kandy", "Kegalle", "Kilinochchi", "Kurunegala", "Mannar", "Matale", "Matara", "Monaragala", "Mullaitivu", "Nuwara Eliya", "Polonnaruwa", "Puttalam", "Ratnapura", "Trincomalee", "Vavuniya", "Sigiriya", "Kandy", "Galle", "Colombo", "Nuwara Eliya", "Arugam Bay", "Anuradhapura", "Yala National Park", "Ella", "Dambulla", "Mirissa", "Polonnaruwa", "Bentota", "Hikkaduwa", "Trincomalee", "Negombo", "Jaffna", "Unawatuna", "Adam's Peak", "Udawalawe National Park"],key="location")
 
 with open(f'./classifications/{category}.json') as f:
     menu = json.load(f)
