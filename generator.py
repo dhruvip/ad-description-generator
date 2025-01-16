@@ -5,6 +5,7 @@ from langchain.chains import LLMChain
 import os
 from langchain_community.callbacks import get_openai_callback
 from prompts import general_prompt_template, vehicle_prompt_template, auto_parts_prompt_template
+import logging
 
 def copy_and_clean_session_obj(session_obj, nonspecifics):
     temp = dict()
@@ -21,8 +22,8 @@ def copy_and_clean_session_obj(session_obj, nonspecifics):
 
 def generator(session_obj, model):
     session_obj, ad_specifics = copy_and_clean_session_obj(session_obj, ["ad_type","category","brand-model","language","generate"])
-  
-    if(session_obj["category"] == "Cars" or session_obj["category"] == "Motorbikes"):
+    
+    if(session_obj["category"] in ["Cars", "Motorbikes"]):
         template_string = vehicle_prompt_template.prompt
     else:
         template_string = general_prompt_template.prompt
@@ -36,7 +37,6 @@ def generator(session_obj, model):
                     ad_specifics=ad_specifics,
                     language=session_obj["language"]
                     )
-    
     match model:
         case 'gpt-4o':
             return chatGpt(final_prompt, model='gpt-4o')
