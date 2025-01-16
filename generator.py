@@ -23,9 +23,9 @@ def generator(session_obj, model):
     session_obj, ad_specifics = copy_and_clean_session_obj(session_obj, ["ad_type","category","brand-model","language","generate"])
   
     if(session_obj["category"] == "Cars" or session_obj["category"] == "Motorbikes"):
-        template_string = vehicle_prompt_template
+        template_string = vehicle_prompt_template.prompt
     else:
-        template_string = general_prompt_template
+        template_string = general_prompt_template.prompt
     
     prompt_template = ChatPromptTemplate.from_template(template_string)
     print(prompt_template.messages[0].prompt.input_variables)
