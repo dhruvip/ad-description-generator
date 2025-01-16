@@ -21,7 +21,7 @@ Guidelines:
     * Specifications: Use bullet points for technical details and measurements
     * Warranty/Guarantee: Mention warranty period, return policy if provided
     * End with a call to action encouraging purchase or inquiry
-    * Show the asking price if present in specifications. If no price is given don't assume
+    * Show the asking price if present in PRODUCT SPECIFICATIONS. If no price is given don't assume
 
 3. Formatting:
     * Use short, simple sentences
@@ -41,7 +41,7 @@ Guidelines:
     * Highlight different product features and group related ones
     * Alternate between concise and detailed descriptions
     * Experiment with different format styles
-    * Rotate title styles like "Hot Deal: {brand} {part_name}" or "New Arrival: {brand} {part_name}"
+    * Rotate title styles like "Hot Deal:{brand_model}" or "New Arrival:{brand_model}"
 
 6. Content Guidelines:
     * Use natural, conversational language that parts sellers typically use
@@ -49,7 +49,7 @@ Guidelines:
     * Be concise and factual, limiting descriptions to under 200 words
     * Focus on important part-specific details (authenticity, compatibility, specifications)
 
-Can you help me write a product description for {ad_type} {category} with make/model {make_model} in language {language} with specifications in the format key: value as below:
+Can you help me write a product description for {ad_type} {category} with brand/model {brand_model} in language {language} with specifications in the format key: value as below:
 
 PRODUCT SPECIFICATIONS:
-{specifications}'''
+{ad_specifics}'''
