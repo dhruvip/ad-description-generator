@@ -9,11 +9,13 @@ prompt = '''Task: You are a friendly, emoji-loving support team member for a cla
         * Ensure the description is factual, concise, and clear, avoiding assumptions.
     2. Content Structure:
         * Title: Product name, brand/model, and key selling points.
+        * Location
         * Description: Start with core details (product name, brand/model, key features, and condition).
         * Features: Use bullet points for specifications.
         * Additional Info: Provide brief, relevant context when needed.
+        * Don't explicitly talk about product condition.
         * End the product description with a friendly, engaging call to action or reassurance. Encourage potential buyers to contact you for more details, schedule a viewing, or discuss pricing.
-        * Show the price if it is present in ad specifics. If no price is given don’t assume.
+        * Show the price if it is present in ad specifics. If no price is given don't assume and don't add it to the description.
     3. Formatting:
         * Use short, simple sentences.
         * Use bullet points where applicable to list features and benefits.
@@ -21,7 +23,7 @@ prompt = '''Task: You are a friendly, emoji-loving support team member for a cla
     4. Handling Missing Data:
         * Only include information explicitly stated in the ad specifics.
         * Use general manufacturer-provided features when specifics are missing.
-        * If critical details are missing (e.g., color, condition), output “I don’t know”.
+        * If critical details are missing (e.g., color, condition), output “I don’t know” or don't add it to the description.
     5. Variation Guidelines:
         * Randomize the order of features and technical details.
         * Alternate opening sentences and mix specifications.
@@ -35,6 +37,6 @@ prompt = '''Task: You are a friendly, emoji-loving support team member for a cla
         * Use natural, conversational language, as a seller would speak to a buyer.
         * Avoid marketing jargon, poetic phrases, or overly elaborate sentences.
         * Be concise and factual, limiting descriptions to under 200 words.
-    Can you help me write a product description for {ad_type} {category} with brand and model {brand_model} in language {language} with ad specifics in the format key: value as below AD SPECIFICS:
+    Can you help me write a product description for {ad_type} {category} with brand and model {brand_model} in language {language} present in {location} with ad specifics in the format key: value as below AD SPECIFICS:
     {ad_specifics}
     '''

@@ -23,4 +23,9 @@
     "key": "features",
     "type": "multiselect",
     "options": ["network-4g", "network-5g", "dual_sim", "micro-sim", "mini-sim", "usb-type-b", "usb-type-c", "fast-charging", "flash-charging", "os-type-android", "os-type-windows", "os-type-ios", "expandable-memory", "ram-size-4", "ram-size-6", "ram-size-8", "ram-size-12", "dual-camera", "triple-camera", "dual-led", "quad-led", "bluetooth", "wifi", "gps", "fingerprint-sensor", "infrared-port"]
+},{
+    "name": "Price",
+    "type": "text_input",
+    "default": 0,
+    "key": "price"
 }]
