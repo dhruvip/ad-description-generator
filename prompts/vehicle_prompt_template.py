@@ -14,7 +14,7 @@ Guidelines:
     * Description: Start with core details (year, make, model, mileage, transmission, fuel type)
     * Features: Use bullet points for specifications and modifications
     * Service History: Mention maintenance records, recent repairs, or upgrades if provided or don't add it to the description.
-    * Don't explicitly talk about product condition.
+    * Add product condition if it is given, don't assume.
     * End with a call to action encouraging test drives, inspections, or viewing appointments
     * Show the asking price if present in VEHICLE SPECIFICATIONS. If no price is given don't assume and don't add it to the description.
 
