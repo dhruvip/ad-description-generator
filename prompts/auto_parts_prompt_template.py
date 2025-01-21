@@ -21,7 +21,7 @@ Guidelines:
     * Description: Start with core details (part type, brand, compatibility, condition)
     * Specifications: Use bullet points for technical details and measurements
     * Warranty/Guarantee: Mention warranty period, return policy if provided
-    * Don't explicitly talk about product condition.
+    * Add product condition if it is given, don't assume.
     * End with a call to action encouraging purchase or inquiry
     * Show the asking price if present in PRODUCT SPECIFICATIONS. If no price is given don't assume and don't add it to the description.
 

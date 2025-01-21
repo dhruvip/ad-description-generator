@@ -13,7 +13,7 @@ prompt = '''Task: You are a friendly, emoji-loving support team member for a cla
         * Description: Start with core details (product name, brand/model, key features, and condition).
         * Features: Use bullet points for specifications.
         * Additional Info: Provide brief, relevant context when needed.
-        * Don't explicitly talk about product condition.
+        * Add product condition if it is given, don't assume.
         * End the product description with a friendly, engaging call to action or reassurance. Encourage potential buyers to contact you for more details, schedule a viewing, or discuss pricing.
         * Show the price if it is present in ad specifics. If no price is given don't assume and don't add it to the description.
     3. Formatting:
